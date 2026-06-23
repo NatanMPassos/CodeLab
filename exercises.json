@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "exercise": "Dado um número N, imprima o quadrado de N",
+    "test_cases": [
+      {"test_input": "5", "expected_output": "25"},
+      {"test_input": "3", "expected_output": "9"},
+      {"test_input": "1", "expected_output": "1"}
+    ]
+  }
+]
