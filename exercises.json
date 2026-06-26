@@ -7,5 +7,23 @@
       {"test_input": "3", "expected_output": "9"},
       {"test_input": "1", "expected_output": "1"}
     ]
+  },
+  {
+    "id": 2,
+    "exercise": "Dado um número N, imprima N+1",
+    "test_cases": [
+      {"test_input": "5", "expected_output": "6"},
+      {"test_input": "3", "expected_output": "4"},
+      {"test_input": "1", "expected_output": "2"}
+    ]
+  },
+  {
+    "id": 3,
+    "exercise": "Dado um número N, imprima o cubo de N",
+    "test_cases": [
+      {"test_input": "5", "expected_output": "125"},
+      {"test_input": "3", "expected_output": "27"},
+      {"test_input": "1", "expected_output": "1"}
+    ]
   }
 ]

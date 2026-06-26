@@ -9,9 +9,12 @@ python_path = sys.executable
 with open('exercises.json', 'r', encoding='utf-8') as file:
     exercise_list = json.load(file)
 
+exercise_id = int(input("Which exercise do you want to answer? Type a number: "))
+exercise_id += 1
+
 #separate json 
-exercise = exercise_list[0]['exercise']
-case_list = exercise_list[0]['test_cases']
+exercise = exercise_list[exercise_id]['exercise']
+case_list = exercise_list[exercise_id]['test_cases']
 
 right_answers = 0
 total_cases = len(case_list)
@@ -33,13 +36,14 @@ for case in case_list:
         print("Timeout error: answer code took too long to run.\n")
         continue
         
-    #showing answer code errors (if any)
+    #show answer code errors (if any)
     if results.returncode != 0:
         print("Input:",case['test_input'])
         print("Answer code error:")
         print(results.stderr)
         continue
 
+    #show input and output 
     print("Input:",case['test_input'])
     print("Expected output:",case['expected_output'].strip())
     print("Given output:", results.stdout.strip())
