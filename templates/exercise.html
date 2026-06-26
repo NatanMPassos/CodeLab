@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+</head>
+<html>
+<body style="background-color: #F5F5DC">
+    <a href="{{ url_for('home') }}">
+        <button>Home</button>
+    </a>
+    <nav>
+    {% for item in exercises %}
+        <a href="{{ url_for('exercise', id=item['id']) }}">
+            Exercise {{ item['id'] }}
+        </a>
+    {% endfor %}
+    </nav>
+
+    <h2>{{ exercise['exercise'] }}</h2>
+
+    <form method="POST">
+        <textarea id="code" name="code">{{ code if code else '' }}</textarea>
+
+        <script>
+            var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+                mode: 'python',
+                lineNumbers: true,
+                indentUnit: 4,
+                theme: 'default'
+            });
+        </script>        
+        <br>
+        <button type="submit">Run</button>
+    </form>
+
+    {% if results %}
+        <h3>Resultados:</h3>
+        {% for r in results %}
+            <p>
+                Input: {{ r['input'] }} | 
+                Expected: {{ r['expected'] }} | 
+                Got: {{ r['got'] }} | 
+                {{ 'Correct!' if r['passed'] else 'Incorrect!' }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+    <a href="{{ url_for('finish') }}">
+        <button>Finish</button>
+    </a>
+
+</body>
+</html>

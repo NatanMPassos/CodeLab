@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: #F5F5DC">
+    <h1>Final results</h1>
+    {% for item in exercises %}
+        <p>
+            Exercício {{ item['id'] }}: {{ item['exercise'] }} |
+            {{ 'All tests correct!' if results_summary.get(item['id']|string) else 'At least one test incorrect!' }}
+        </p>
+    {% endfor %}
+    <a href="/">Back to home</a>
+</body>
+</html>
