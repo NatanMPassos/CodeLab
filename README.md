@@ -2,10 +2,10 @@
 
 A lightweight web platform for Python coding exercises with automatic test case validation.
 This project is a Work In Progress, features still pending:
--Code will not be lost when switching between exercises
--json file format check
--Several visual upgrades
--Thorough debugging
+- Code will not be lost when switching between exercises
+- json file format check
+- Several visual upgrades
+- Thorough debugging
 
 ## Overview
 
